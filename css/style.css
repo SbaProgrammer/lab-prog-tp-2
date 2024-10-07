@@ -113,3 +113,73 @@ section{
     color: #2A2B2A;
     transition: all .50s ease;
 }
+
+/* Css relacionado a la pagina contactos*/
+
+
+.hero-contacto{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    align-items: center;
+    gap: 2rem;
+}
+
+.contenedor{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    width: 100%;
+    max-width: 1500px;
+    height: 500px;
+    background-color: rgb(235, 229, 229);
+    border-radius: 10px;
+    box-shadow: 0 0 20px 1px rgb(14, 13, 13);
+    z-index: 1000;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.contacto-info{
+    background: linear-gradient(245.59deg, #706C61 0%,#F8F4E3 200%);
+}
+
+.contacto-form{
+    background-color: #b4b0a2;
+    position: relative;
+
+}
+
+.circulo {
+    border-radius: 50%;
+    background: linear-gradient(135deg, transparent 30%, #2A2B2A);
+    position: absolute;
+    background-color:#b4b0a2;
+  }
+  
+  .circulo.uno {
+    width: 130px;
+    height: 130px;
+    top: 130px;
+    right: -40px;
+  }
+  
+  .circulo.dos {
+    width: 80px;
+    height: 80px;
+    top: 10px;
+    right: 30px;
+  }
+  
