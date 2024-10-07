@@ -21,10 +21,12 @@ function cargarCatalogo() {
 
         divProducto.innerHTML = `
             <img src="${producto.imagen}" alt="${producto.nombre}">
+        <div class="contenido">
             <h3>${producto.nombre}</h3>
             <p>${producto.descripcion}</p>
             <p class="precio">$${producto.precio}</p>
             <button>Comprar</button>
+        </div>
         `
         catalogo.appendChild(divProducto);
     })
