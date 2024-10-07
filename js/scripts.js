@@ -3,11 +3,11 @@
 const productos = [
     { id: 1, nombre: 'Remera Manga Corta', descripcion: 'Remera Manga Corta de Algodon', precio: 20, imagen: '../img/Remera-manga-corta.jpg' },
     { id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
-    { id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
-    { id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
-    { id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
-    { id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
-    { id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' }
+    //{ id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
+    //{ id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
+    //{ id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
+    //{ id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
+    //{ id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' }
 ];
 
 //Genero el catalogo
