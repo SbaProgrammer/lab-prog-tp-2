@@ -13,7 +13,7 @@ body{
 }
 
 header{
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 0;
     z-index: 1000;
@@ -222,15 +222,23 @@ section{
   /* Css relacionado a cataloggo*/
 
   .producto {
-    background-color: white;
-    margin: 15px;
-    width: 250px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    border: solid #2A2B2A;
+    background-color: #F8F4E3;
+    margin: 5px;
+    width: 70%;
+    text-align: left;
     padding: 15px;
   }
 
   .producto img {
-    max-width: 100%;
+    max-width: 30%;
+    margin-right: 20px;
+  }
+
+  .producto .contenido {
+    max-width: 70%;
   }
 
   .producto h3 {
@@ -263,7 +271,7 @@ section{
     margin-top: 90px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
-    padding: 10px;
+    justify-content: center;
+    padding: 80px;
     background: transparent;
 }
