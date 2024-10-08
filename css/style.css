@@ -322,6 +322,38 @@ section{
     opacity: 1;
   }
 
+  
+.contacto-info {
+  padding: 2.3rem 2.2rem;
+  position: relative;
+}
+
+.text {
+  color: black;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.informacion {
+  display: flex;
+  color: black;
+  margin: 0.7rem 0;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.icon {
+  width: 28px;
+  margin-right: 0.7rem;
+  border-radius: 50%;
+}
+
+.maps {
+  position: relative;
+  width: 100%;
+  border-width: 3px;
+  border-color: black;
+}
+
 
 
 
@@ -399,3 +431,9 @@ section{
     padding: 80px;
     background: transparent;
 }
+
+
+
+
+
+
