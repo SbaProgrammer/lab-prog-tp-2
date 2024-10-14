@@ -362,19 +362,24 @@ textarea.entrada {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #2A2B2A; 
   margin: 5px;
   width: 90%;
   height: 100%;
   text-align: center;
   padding: 10px;
+  background:  #2A2B2A;
+
+  border-radius: 10px 40px 10px 40px; /* Esquinas (arriba-izquierda, arriba-derecha, abajo-derecha, abajo-izquierda) */
+
 }
 
-
 .producto img {
-  max-width: 60%;
+  margin-top: 5%;
+  width: 300px;
+  height: 300px;
   /* Ajusta la imagen al ancho completo del contenedor */
   margin-bottom: 20px;
+  border-radius: 10px 40px 10px 40px;
   /* Ajusta el margen inferior en lugar de derecho */
 }
 
@@ -384,29 +389,38 @@ textarea.entrada {
 }
 
 .producto h3 {
-  font-size: 18px;
+  font-size: 25px;
+  color: #b4b0a2;
+  font-family: 'Oleo Script', sans-serif;
 }
 
 .producto p {
   font-size: 14px;
-  color: #2A2B2A;
+  color: #b4b0a2;
 }
 
 .producto .precio {
   font-size: 20px;
-  color: #706C61;
+  color: #b4b0a2;
+  font-family: 'Oleo Script', sans-serif;
+  padding: 10px;
 }
 
 .producto button {
   padding: 10px 20px;
-  background-color: #2A2B2A;
-  color: white;
+  background-color: #b4b0a2;
+  color: #2A2B2A;
   border: none;
   cursor: pointer;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: 'Oleo Script', sans-serif;
+  border: #b4b0a2 1px solid;
 }
 
 .producto button:hover {
-  background-color: #706C61;
+  background-color: #2A2B2A;
+  color: #F8F4E3;
 }
 
 .catalogo {
@@ -418,9 +432,27 @@ textarea.entrada {
   padding: 33px 9%;
 }
 
+
+.catalogo h2{
+  font-family: "Playwrite CU", cursive;
+  color: #b4b0a2;;
+  border-bottom: 10px dashed transparent; /* Borde punteado transparente */
+  background-color: #2A2B2A;
+  border-radius: 10px 40px 10px 40px;
+  text-align: center;
+}
+
+
 .catalogo-remeras {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
   justify-content: center;
   margin-left: 3%;
+  padding: 3%;
+}
+
+.precio_boton {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Tres columnas de igual tamaño */
 }
