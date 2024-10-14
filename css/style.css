@@ -354,8 +354,7 @@ textarea.entrada {
 .maps {
   position: relative;
   width: 100%;
-  border-width: 3px;
-  border-color: black;
+  border-radius: 20px;
 }
 
 .producto {
