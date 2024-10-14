@@ -362,23 +362,24 @@ textarea.entrada {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(245.59deg, #F8F4E3 0%, #706C61 100%); 
-   margin: 5px;
-  width: 70%;
+  background: #2A2B2A; 
+  margin: 5px;
+  width: 90%;
+  height: 100%;
   text-align: center;
-  padding: 15px;
+  padding: 10px;
 }
 
 
 .producto img {
-  max-width: 100%;
+  max-width: 60%;
   /* Ajusta la imagen al ancho completo del contenedor */
   margin-bottom: 20px;
   /* Ajusta el margen inferior en lugar de derecho */
 }
 
 .producto .contenido {
-  max-width: 100%;
+  max-width: 90%;
   /* Permite que el contenido ocupe todo el ancho */
 }
 
@@ -409,10 +410,17 @@ textarea.entrada {
 }
 
 .catalogo {
-  display: flex;
+  display: grid ;
   flex-direction: column;
   margin-top: 90px;
   padding: 80px;
   background: transparent;
   padding: 33px 9%;
+}
+
+.catalogo-remeras {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+  justify-content: center;
+  margin-left: 3%;
 }
