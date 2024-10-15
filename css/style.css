@@ -363,7 +363,7 @@ textarea.entrada {
   align-items: center;
   margin: 5px;
   width: 90%;
-  height: 100%;
+  height: 98%;
   text-align: center;
   padding: 10px;
   background:  #2A2B2A;
@@ -442,7 +442,7 @@ textarea.entrada {
 }
 
 
-.catalogo-remeras {
+.catalogo-productos {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
   justify-content: center;
