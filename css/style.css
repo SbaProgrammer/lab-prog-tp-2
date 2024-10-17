@@ -78,8 +78,8 @@ section {
   width: 90%;
   height: 50%;
 }
-h5
-.hero-text h1 {
+
+.hero-text h1{
   font-size: 100%;
   font-weight: 400;
   color: #2A2B2A;
@@ -174,6 +174,7 @@ h5
 }
 
 .circulo.uno {
+  margin-right: 3%;
   width: 130px;
   height: 130px;
   top: 30px;
@@ -281,7 +282,7 @@ textarea.entrada {
   height: 98%;
   text-align: center;
   padding: 10px;
-  background:  #2A2B2A;
+  background:  #2A2B2A; 
   border-radius: 10px 40px 10px 40px; /* Esquinas (arriba-izquierda, arriba-derecha, abajo-derecha, abajo-izquierda) */
 }
 
