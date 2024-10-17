@@ -78,15 +78,15 @@ section {
   width: 90%;
   height: 50%;
 }
-
-.hero-text h5 {
+h5
+.hero-text h1 {
   font-size: 100%;
   font-weight: 400;
   color: #2A2B2A;
   margin-bottom: 40px;
 }
 
-.hero-text h1 {
+.hero-text h2 {
   font-family: "Playwrite CU", cursive;
   font-size: 250%;
   line-height: 1;
@@ -272,10 +272,6 @@ textarea.entrada {
   border: 2px solid #2a2b2a;
 }
 
-
-
-
-
 .producto {
   display: flex;
   flex-direction: column;
@@ -286,9 +282,7 @@ textarea.entrada {
   text-align: center;
   padding: 10px;
   background:  #2A2B2A;
-
   border-radius: 10px 40px 10px 40px; /* Esquinas (arriba-izquierda, arriba-derecha, abajo-derecha, abajo-izquierda) */
-
 }
 
 .producto img {
