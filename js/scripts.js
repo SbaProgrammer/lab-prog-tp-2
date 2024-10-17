@@ -1,34 +1,25 @@
 //Productos a ofrecer
 
-/*const productos1 = [
-    { id: 1, nombre: 'Remera diseño de Messi', descripcion: 'Remera Manga Corta de Algodon', precio: 20, imagen: '../img/remera1.jpeg', tipo: 1},
-    { id: 2, nombre: 'Remera diseño de Turing', descripcion: 'Remera Manga Corta de Algodon', precio: 80, imagen: '../img/remera2.jpeg', tipo: 1},
-    { id: 3, nombre: 'Remera diseño de Boxeo', descripcion: 'Remera Manga Corta de Algodon', precio: 900, imagen: '../img/remera3.jpeg', tipo: 1 },
-    { id: 4, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
-    //{ id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
-    //{ id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
-    //{ id: 2, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' }
-];*/
-
-
-
 const remeras = [
     { id: 1, nombre: 'Remera diseño de Messi', descripcion: 'Remera Manga Corta de Algodon', precio: 20, imagen: '../img/remera1.jpeg'},
     { id: 2, nombre: 'Remera diseño de Turing', descripcion: 'Remera Manga Corta de Algodon', precio: 80, imagen: '../img/remera2.jpeg'},
     { id: 3, nombre: 'Remera diseño de Boxeo', descripcion: 'Remera Manga Corta de Algodon', precio: 900, imagen: '../img/remera3.jpeg'},
-    //{ id: 3, nombre: 'Remera diseño de Boxeo', descripcion: 'Remera Manga Corta de Algodon', precio: 900, imagen: '../img/remera3.jpeg'}
 ];
 
 const buzos = [
-    { id: 4, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
-    { id: 5, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' },
-    { id: 6, nombre: 'Bermuda', descripcion: 'Bermuda de Jean', precio: 80, imagen: '../img/bermuda-de-jean.png' }
+    { id: 4, nombre: 'Buzo Logo de Linux', descripcion: 'Buzo de algodón con el logo de Linux', precio: 600, imagen: '../img/buzo1.jpeg' },
+    { id: 5, nombre: 'Buzo Logo de Windows', descripcion: 'Buzo de algodón con el logo de Windows', precio: 600, imagen: '../img/buzo2.jpeg' },
+];
+
+const zapatillas = [
+    { id: 6, nombre: 'Zapatillas Operaciones Matemáticas', descripcion: 'Zapatillas Negras con dibujos matemáticos', precio: 2000, imagen: '../img/zapatillas1.jpeg' },
+    { id: 7, nombre: 'Zapatillas Codigos', descripcion: 'Zapatillas blancas con lineas de codigo', precio: 2000, imagen: '../img/zapatillas2.jpeg' },
 ];
 
 const catalogos = [
     { productos: remeras, tipo: 'Remeras'},
     { productos: buzos, tipo: 'Buzos'},
-    //{ productos: [], tipo: 'Pantalones'}
+    { productos: zapatillas, tipo: 'Zapatillas'}
 ];
 
 //Genero el catalogo
