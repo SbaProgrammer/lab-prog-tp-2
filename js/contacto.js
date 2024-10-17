@@ -35,3 +35,23 @@ entradas.forEach((entrada) => {
 A cada elemento se le añade un event listener que serian las funciones.
 */
 
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  if (name === "" || email === "" || message === "") {
+      alert("Por favor, complete todos los campos.");
+      event.preventDefault();
+  } else {
+      alert("¡Formulario enviado con éxito!");
+  }
+});
+
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();  // Evita que el formulario se envíe a una página de error
+  alert("¡Gracias por contactarnos! Te responderemos pronto.");
+});
+
+
