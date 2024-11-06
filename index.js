@@ -10,22 +10,16 @@ const app = express();
  - callback: Es una función que se ejecutará cada vez que el servidor reciba una solicitud GET en la ruta especificada. Esta función toma dos parámetros:
 	- request: Un objeto que contiene la información de la solicitud (como parámetros, cabeceras, etc.).
 	- response: Un objeto que permite enviar una respuesta al cliente.
-
 */
 
+app.use(express.static(path.join(__dirname, 'KingOfSouth')));
+
 app.get('/', (request, response) => {
-    //  Esto serve para entecontra una ruta relativa, es decir, arma la ruta clasi "/x/c/../index.html"
-    const filePath = path.join(__dirname, 'KingOfSouth', 'index.html');
+    //  Esto sirve para encontra una ruta relativa, es decir, arma la ruta clasi "/x/c/../index.html" apartir del directorio "KingOfSouth" hasta "index.html"
+    const rutaDeArchivo = path.join(__dirname, 'KingOfSouth', 'index.html');
     
-    // Lee el archivos html y si no lo lee le daria erros 
-    fs.readFile(filePath, 'utf8', (err, html) => {
-        if (err) {
-            console.error('Error al leer el archivo:', err);  // Log para depurar
-            response.status(500).send('Paso algo malo XD');
-        } else {
-            response.send(html);  // Enviar el contenido del archivo HTML
-        }
-    });
+    // Utiliza una funcion de fs para poder leer un archivo del repo, si lo encuentra lo manda y si no lo encuentra manda error.
+    fs.readFile(rutaDeArchivo, 'utf8', (err, html) => { if (err) {response.send('Paso algo malo XD'); } else { response.send(html); } });
 });
 
 
