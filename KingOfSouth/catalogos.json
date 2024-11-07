@@ -1,0 +1,57 @@
+{
+    "Remeras": [
+        {
+            "id": 1,
+            "nombre": "Remera diseño de Messi",
+            "descripcion": "Remera Manga Corta de Algodon",
+            "precio": 20,
+            "imagen": "/img/remera1.jpeg"
+        },
+        {
+            "id": 2,
+            "nombre": "Remera diseño de Turing",
+            "descripcion": "Remera Manga Corta de Algodon",
+            "precio": 80,
+            "imagen": "/img/remera2.jpeg"
+        },
+        {
+            "id": 3,
+            "nombre": "Remera diseño de Boxeo",
+            "descripcion": "Remera Manga Corta de Algodon",
+            "precio": 900,
+            "imagen": "/img/remera3.jpeg"
+        }
+    ],
+    "Buzos": [
+        {
+            "id": 4,
+            "nombre": "Buzo Logo de Linux",
+            "descripcion": "Buzo de algodón con el logo de Linux",
+            "precio": 600,
+            "imagen": "/img/buzo1.jpeg"
+        },
+        {
+            "id": 5,
+            "nombre": "Buzo Logo de Windows",
+            "descripcion": "Buzo de algodón con el logo de Windows",
+            "precio": 600,
+            "imagen": "../img/buzo2.jpeg"
+        }
+    ],
+    "Zapatillas": [
+        {
+            "id": 6,
+            "nombre": "Zapatillas Operaciones Matemáticas",
+            "descripcion": "Zapatillas Negras con dibujos matemáticos",
+            "precio": 2000,
+            "imagen": "/img/zapatillas1.jpeg"
+        },
+        {
+            "id": 7,
+            "nombre": "Zapatillas Codigos",
+            "descripcion": "Zapatillas blancas con lineas de codigo",
+            "precio": 2000,
+            "imagen": "/img/zapatillas2.jpeg"
+        }
+    ]
+}
