@@ -1,5 +1,6 @@
 //Productos a ofrecer
 
+/*
 const remeras = [
     { id: 1, nombre: 'Remera diseño de Messi', descripcion: 'Remera Manga Corta de Algodon', precio: 20, imagen: '../img/remera1.jpeg'},
     { id: 2, nombre: 'Remera diseño de Turing', descripcion: 'Remera Manga Corta de Algodon', precio: 80, imagen: '../img/remera2.jpeg'},
@@ -21,27 +22,37 @@ const catalogos = [
     { productos: buzos, tipo: 'Buzos'},
     { productos: zapatillas, tipo: 'Zapatillas'}
 ];
+*/
 
+fetch('../catalogos.json')
+    .then(response => response.json())
+    .then(data => cargarCatalogo(data))
+    .catch(error => console.error("Salió todo mal man"))
+ 
 //Genero el catalogo
-function cargarCatalogo() {
+function cargarCatalogo(jsonCatalogos) {
+    //Traigo el catalogo inicial para agregar los subcatalogos
     const catalogoInicial = document.getElementById('catalogoInicial');
 
-    catalogos.forEach(catalogo => {
+    //Realizo una iteración por cada elemento del json
+    for (const tipoPrenda in jsonCatalogos) {
+        
+        //Creamos el titulo del catálogo
         const titulo = document.createElement('h2');
-        titulo.textContent = catalogo.tipo;
+        titulo.textContent = tipoPrenda;
         catalogoInicial.appendChild(titulo);
 
+        //Creamos una seccion para el subcatalogo
         const nuevoCatalogo = document.createElement('section');
-
         nuevoCatalogo.classList.add('catalogo-productos');
 
-        const productos = catalogo.productos;
-
-        productos.forEach(producto => {
+        //Para cada producto dentro del arreglo correspondiente a la prenda
+        jsonCatalogos[tipoPrenda].forEach(producto => {
             //Creo la estructura
             const divProducto = document.createElement('div');
             divProducto.classList.add('producto');
 
+            //Creo el HTML interno
             divProducto.innerHTML = `
             <img src="${producto.imagen}" alt="${producto.nombre}">
             <div class="contenido">
@@ -52,11 +63,11 @@ function cargarCatalogo() {
                 </div>
             </div>
             `
+            //Agrego el producto al subcatálogo
             nuevoCatalogo.appendChild(divProducto);
         })
 
+        //Agrego el subcatálogo al Catálogo general
         catalogoInicial.appendChild(nuevoCatalogo);
-    })
+    }
 }
-
-window.onload = cargarCatalogo;
