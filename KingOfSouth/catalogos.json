@@ -35,7 +35,7 @@
             "nombre": "Buzo Logo de Windows",
             "descripcion": "Buzo de algodón con el logo de Windows",
             "precio": 600,
-            "imagen": "../img/buzo2.jpeg"
+            "imagen": "/img/buzo2.jpeg"
         }
     ],
     "Zapatillas": [

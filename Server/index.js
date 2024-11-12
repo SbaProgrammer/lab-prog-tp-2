@@ -12,11 +12,11 @@ const app = express();
 	- response: Un objeto que permite enviar una respuesta al cliente.
 */
 
-app.use(express.static(path.join(__dirname, 'KingOfSouth')));
+app.use(express.static(path.join(__dirname, '../KingOfSouth')));
 
 app.get('/', (request, response) => {
     //  Esto sirve para encontra una ruta relativa, es decir, arma la ruta clasi "/x/c/../index.html" apartir del directorio "KingOfSouth" hasta "index.html"
-    const rutaDeArchivo = path.join(__dirname, 'KingOfSouth', 'index.html');
+    const rutaDeArchivo = path.join(__dirname, '../KingOfSouth', 'index.html');
     
     // Utiliza una funcion de fs para poder leer un archivo del repo, si lo encuentra lo manda y si no lo encuentra manda error.
     fs.readFile(rutaDeArchivo, 'utf8', (err, html) => { if (err) {response.send('Paso algo malo XD'); } else { response.send(html); } });
@@ -27,3 +27,8 @@ app.get('/', (request, response) => {
 app.listen(process.env.PORT || 3000, () => {
     console.log('App disponible en http://localhost:3000');
 });
+
+// Endpoint get
+app.get('/:Prenda', (req, res) => {
+    
+})
