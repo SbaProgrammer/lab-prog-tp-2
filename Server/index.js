@@ -2,7 +2,7 @@ const path = require('path');  // Importar el módulo path
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const {existeTipoPrenda}= require('./Modelos/Prendas.js')
+const {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo}= require('./Modelos/Prendas.js')
 
 /* app.get() responde solo a solicitudes, 
  Esta funcion tiene 2 argumentos:
@@ -31,12 +31,12 @@ app.listen(process.env.PORT || 3000, () => {
 // Endpoint get
 app.get('/api/idprenda', (req, res) => {
     //Obtengo el id y tipo de la prenda
-    const {idPrenda, tipoPrenda} = req.query();
+    const {idPrenda, tipoPrenda} = req.query;
 
     if(!idPrenda){
         //Validacion de si nos paso un idprenda
         res.status(400).send({message : 'Es requerido un parámetro \'idPrenda\''});
-    } else if (typeof idPrenda !== 'int' || idPrenda > 0){
+    } else if (Number.isInteger(idPrenda) || idPrenda < 0){
         //Validacion de que el idPrenda sea entero y mayor a 0
         res.status(400).send({message : 'El parámetro \'idPrenda\' debe ser un entero mayor que 0'});
     } else if (!tipoPrenda){
@@ -48,7 +48,7 @@ app.get('/api/idprenda', (req, res) => {
     } else {
         //Los datos enviados son correctos
 
-        if (!existePrenda(tipoPrenda)){
+        if (!existeTipoPrenda(tipoPrenda)){
             //Verificamos si el tipo de patron existe
             res.status(404).send('No existe el tipo de prenda');
         } else {
@@ -56,7 +56,7 @@ app.get('/api/idprenda', (req, res) => {
 
             if(!existePrendaEnTipo(idPrenda, tipoPrenda)){
                 //Verificamos si ese id existe en ese tipo de prenda
-                res.status(404).send('No existe el id en el tipo de prenda');
+                res.status(404).send('No existe la prenda en el tipo');
             } else {
                 //Todo se cumple, enviamos la prenda
                 const prenda = obtenerPrendaDeTipo(idPrenda, tipoPrenda);
