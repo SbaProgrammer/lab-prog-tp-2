@@ -9,16 +9,7 @@ const existeTipoPrenda = (prenda) => {
 
 const existePrendaEnTipo = (idPrenda, tipoPrenda) => {
     //Verifico si el idPrenda existe en el tipo dado
-    const arregloPrendas = jsonPrendas[tipoPrenda];
-    let encontrado = false;
-
-    arregloPrendas.forEach(prenda => {
-        if(prenda.id === idPrenda){
-            encontrado = true;
-        }
-    });
-
-    return encontrado/*.some(item => item.id === idPrenda)*/;    
+    return jsonPrendas[tipoPrenda].some(item => item.id === idPrenda);    
 }
 
 const obtenerPrendaDeTipo = (idPrenda, tipoPrenda) => {

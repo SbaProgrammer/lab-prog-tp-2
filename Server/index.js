@@ -31,12 +31,14 @@ app.listen(process.env.PORT || 3000, () => {
 // Endpoint get
 app.get('/api/idprenda', (req, res) => {
     //Obtengo el id y tipo de la prenda
-    const {idPrenda, tipoPrenda} = req.query;
+    let {idPrenda, tipoPrenda} = req.query;
+
+    idPrenda = parseInt(idPrenda);
 
     if(!idPrenda){
         //Validacion de si nos paso un idprenda
         res.status(400).send({message : 'Es requerido un parámetro \'idPrenda\''});
-    } else if (Number.isInteger(idPrenda) || idPrenda < 0){
+    } else if (idPrenda < 0){
         //Validacion de que el idPrenda sea entero y mayor a 0
         res.status(400).send({message : 'El parámetro \'idPrenda\' debe ser un entero mayor que 0'});
     } else if (!tipoPrenda){
