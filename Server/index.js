@@ -2,7 +2,7 @@ const path = require('path');  // Importar el módulo path
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo}= require('./Modelos/Prendas.js')
+const {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto}= require('./Modelos/Prendas.js')
 
 /* app.get() responde solo a solicitudes, 
  Esta funcion tiene 2 argumentos:
@@ -67,5 +67,46 @@ app.get('/api/idprenda', (req, res) => {
                 res.send(prenda);
             }
         }
+    }
+})
+
+//Endponint POST Verifico tipos de datos?
+app.use(express.json());
+app.post('/api/idprenda', (req, res) => {
+    //Obtengo el id y tipo de la prenda
+    let productoRecibido = req.body;
+    let {tipoPrenda} = req.query;
+
+    if (!tipoPrenda) {
+        //Verifico que el parametro esté
+        res.status(400).send({message: 'Se requiere el parámetro tipoPrenda'});
+    } else if (typeof tipoPrenda !== 'string') {
+        //Verifico que el tipo de Prenda sea un String
+        res.status(400).send({message: 'El parámetro debe ser un String'});
+    }
+    
+    //Verifico que contenga todo lo del body
+    if (!productoRecibido.id) {
+        res.status(404).send('No está el idPrenda en el body');
+    } else if(!productoRecibido.nombre){
+        res.status(404).send('No está el nombre en el body');
+    } else if(!productoRecibido.descripcion){
+        res.status(404).send('No está la descripcion en el body');
+    } else if(!productoRecibido.precio){
+        res.status(404).send('No está el precio en el body');
+    } else if(!productoRecibido.imagen){
+        res.status(404).send('No está la imagen en el body');
+    }
+
+    if (!existeTipoPrenda(tipoPrenda)) {
+        //Verifico que el tipo de la prenda exista
+        res.status(404).send('No existe el tipo de la prenda');
+    } else if(existePrendaEnTipo(productoRecibido.id, tipoPrenda)){
+        //Verifico si existe una prenda de ese tipo con el mismo id
+        res.status(404).send('Ya existe la prenda en el tipo');
+    } else {
+        //Se puede agregar el producto
+        agregarProducto(productoRecibido, tipoPrenda);
+        res.status(200).send('Se agrego con exito');
     }
 })
