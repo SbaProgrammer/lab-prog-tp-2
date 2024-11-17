@@ -37,4 +37,15 @@ const agregarProducto = (producto, tipoPrenda) => {
     fs.writeFileSync(rutaJsonPrendas, stringJSON, 'utf8');
 }
 
-module.exports = {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto};
+const eliminarProducto = (idPrenda, tipoPrenda) => {
+    //Elimino el elemento del arreglo
+    const nuevoArreglo = jsonPrendas[tipoPrenda].filter(producto => producto.id !== idPrenda);
+    jsonPrendas[tipoPrenda] = nuevoArreglo;
+
+    let stringJSON = JSON.stringify(jsonPrendas);
+
+    //Reescribo el archivo
+    fs.writeFileSync(rutaJsonPrendas, stringJSON, 'utf8');
+}
+
+module.exports = {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto, eliminarProducto};

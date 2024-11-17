@@ -2,7 +2,7 @@ const path = require('path');  // Importar el módulo path
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto}= require('./Modelos/Prendas.js')
+const {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto, eliminarProducto}= require('./Modelos/Prendas.js')
 
 /* app.get() responde solo a solicitudes, 
  Esta funcion tiene 2 argumentos:
@@ -108,5 +108,46 @@ app.post('/api/idprenda', (req, res) => {
         //Se puede agregar el producto
         agregarProducto(productoRecibido, tipoPrenda);
         res.status(200).send('Se agrego con exito');
+    }
+})
+
+app.delete('/api/idprenda', (req, res) => {
+    //Obtengo el id y tipo de la prenda
+    let {idPrenda, tipoPrenda} = req.query;
+
+    idPrenda = parseInt(idPrenda);
+
+    if(!idPrenda){
+        //Validacion de si nos paso un idprenda
+        res.status(400).send({message : 'Es requerido un parámetro \'idPrenda\''});
+    } else if (idPrenda < 0){
+        //Validacion de que el idPrenda sea entero y mayor a 0
+        res.status(400).send({message : 'El parámetro \'idPrenda\' debe ser un entero mayor que 0'});
+    } else if (!tipoPrenda){
+        //Validacion de si nos paso un tipoPrenda
+        res.status(400).send({message : 'Es requerido un parámetro \'tipoPrenda\''});
+    } else if (typeof tipoPrenda !== 'string'){
+        //Validacion de que el tipoPrenda sea un String
+        res.status(400).send({message : 'El parámetro \'tipoPrenda\' debe ser un string'});
+    } else {
+        //Los datos enviados son correctos
+
+        if (!existeTipoPrenda(tipoPrenda)){
+            //Verificamos si el tipo de patron existe
+            res.status(404).send('No existe el tipo de prenda');
+        } else {
+            //El tipo de prenda es valido
+
+            if(!existePrendaEnTipo(idPrenda, tipoPrenda)){
+                //Verificamos si ese id existe en ese tipo de prenda
+                res.status(404).send('No existe la prenda en el tipo');
+            } else {
+                //Todo se cumple, eliminamos la prenda
+                eliminarProducto(idPrenda, tipoPrenda);
+
+                //Enviamos la respuesta
+                res.status(200).send('La prenda fue eliminada con exito');
+            }
+        }
     }
 })
