@@ -2,7 +2,7 @@ const path = require('path');  // Importar el módulo path
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto, eliminarProducto}= require('./Modelos/Prendas.js')
+const {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto, eliminarProducto, obtenerJSON, obtenerPrendasDeTipo}= require('./Modelos/Prendas.js')
 
 /* app.get() responde solo a solicitudes, 
  Esta funcion tiene 2 argumentos:
@@ -26,6 +26,12 @@ app.get('/', (request, response) => {
 // Iniciar el servidor, en el puerto 300 y genera la dir
 app.listen(process.env.PORT || 3000, () => {
     console.log('App disponible en http://localhost:3000');
+});
+
+//Obtengo el catalogo
+app.get('/catalogo', (req, res) => {
+    const jsonRetorno = obtenerJSON();
+    res.send(jsonRetorno);
 });
 
 // Endpoint get

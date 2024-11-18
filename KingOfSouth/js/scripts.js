@@ -1,5 +1,5 @@
 //Productos a ofrecer
-fetch('../catalogos.json')
+fetch('http://localhost:3000/catalogo')
     .then(response => response.json())
     .then(data => cargarCatalogo(data))
     .catch(error => console.error("Salió todo mal man"))

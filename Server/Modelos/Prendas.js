@@ -1,6 +1,16 @@
 const fs = require('fs');
-const rutaJsonPrendas = '../KingOfSouth/catalogos.json';
+const rutaJsonPrendas = './catalogos.json';
 const jsonPrendas = JSON.parse(fs.readFileSync(rutaJsonPrendas, 'utf-8'));
+
+const obtenerJSON = () => {
+    //Devuelvo el json entero
+    return jsonPrendas;
+}
+
+const obtenerPrendasDeTipo = (tipoPrenda) => {
+    //Devuelvo las prendas de un tipo específico
+    return jsonPrendas[tipoPrenda];
+}
 
 const existeTipoPrenda = (prenda) => {
     //Coincidencia mayus y minus?
@@ -48,4 +58,4 @@ const eliminarProducto = (idPrenda, tipoPrenda) => {
     fs.writeFileSync(rutaJsonPrendas, stringJSON, 'utf8');
 }
 
-module.exports = {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto, eliminarProducto};
+module.exports = {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto, eliminarProducto, obtenerPrendasDeTipo, obtenerJSON};

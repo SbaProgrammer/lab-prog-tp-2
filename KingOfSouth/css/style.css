@@ -143,7 +143,7 @@ section {
 
 .form {
   width: 90%;
-  max-width: 1000px; 
+  max-width: 1000px;
   background-color: #b4b0a2;
   border-radius: 10px;
   box-shadow: 0 0 20px 1px rgba(14, 13, 13, 0.3);
@@ -169,7 +169,7 @@ section {
 .circulo {
   border-radius: 50%;
   position: absolute;
-  background-color: rgba(42, 43, 42, 0.1); 
+  background-color: rgba(42, 43, 42, 0.1);
 }
 
 .circulo.uno {
@@ -224,6 +224,7 @@ form {
   height: 28px;
   border-radius: 30%;
 }
+
 .maps {
   width: 100%;
   border-radius: 20px;
@@ -235,7 +236,7 @@ form {
   border: 2px solid #2a2b2a;
   padding: 0.8rem 1.2rem;
   border-radius: 25px;
-  background:transparent;
+  background: transparent;
   font-size: 1rem;
   outline: none;
 }
@@ -270,6 +271,8 @@ textarea.entrada {
   border: 2px solid #2a2b2a;
 }
 
+/*Css relacionado a catalogo*/
+
 .producto {
   display: flex;
   flex-direction: column;
@@ -279,8 +282,9 @@ textarea.entrada {
   height: 98%;
   text-align: center;
   padding: 10px;
-  background:  #2A2B2A; 
-  border-radius: 10px 40px 10px 40px; /* Esquinas (arriba-izquierda, arriba-derecha, abajo-derecha, abajo-izquierda) */
+  background: #2A2B2A;
+  border-radius: 10px 40px 10px 40px;
+  /* Esquinas (arriba-izquierda, arriba-derecha, abajo-derecha, abajo-izquierda) */
 }
 
 .producto img {
@@ -334,7 +338,7 @@ textarea.entrada {
 }
 
 .catalogo {
-  display: grid ;
+  display: grid;
   flex-direction: column;
   margin-top: 90px;
   padding: 80px;
@@ -343,10 +347,12 @@ textarea.entrada {
 }
 
 
-.catalogo h2{
+.catalogo h2 {
   font-family: "Playwrite CU", cursive;
-  color: #b4b0a2;;
-  border-bottom: 10px dashed transparent; /* Borde punteado transparente */
+  color: #b4b0a2;
+  ;
+  border-bottom: 10px dashed transparent;
+  /* Borde punteado transparente */
   background-color: #2A2B2A;
   border-radius: 10px 40px 10px 40px;
   text-align: center;
@@ -355,7 +361,8 @@ textarea.entrada {
 
 .catalogo-productos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+  grid-template-columns: repeat(3, 1fr);
+  /* Tres columnas de igual tamaño */
   justify-content: center;
   margin-left: 3%;
   padding: 3%;
@@ -364,5 +371,20 @@ textarea.entrada {
 .precio_boton {
   padding: 10px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Tres columnas de igual tamaño */
+  grid-template-columns: repeat(2, 1fr);
+  /* Tres columnas de igual tamaño */
+}
+
+/*Estilos de la seccion de carrito*/
+
+.seccion-carrito {
+  display: grid;
+  flex-direction: column;
+  margin-top: 90px;
+  padding: 80px;
+  background: linear-gradient(245.59deg, #F8F4E3 0%, #706C61 100%);
+  padding: 33px 9%;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
 }
