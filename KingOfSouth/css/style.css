@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif; 
   list-style: none;
   text-decoration: none;
 }
@@ -386,22 +386,85 @@ textarea.entrada {
   padding: 80px;
   background: transparent;
   padding: 33px 9%;
+  align-items: center;
+  justify-items: center;
 }
 
 .contenedor-producto {
-  display: flex;
+  display: grid;
+  grid-template-columns: 15% 30% 20% 10% 10%; 
   align-items: center;
-  justify-content: space-between;
-  gap: 20%;
+  gap: 3%;
   border-bottom: solid 1px #000;
 }
 
-.producto-carrito-imagen img{
-  height: 30%;
-  width: 30%;
+.producto-carrito-imagen {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  overflow: hidden; 
+  padding: 5px;
+}
+
+.producto-carrito-imagen img {
+  max-width: 100%; 
+  height: auto; 
+}
+
+.producto-carrito-nombre {
+  padding-left: 5%;
+}
+.producto-carrito-nombre p {
+  font-size: 20px;
+  font: 'Oleo Script';
+  font-weight: 600;
+}
+
+.producto-carrito-precio,
+.producto-carrito-cantidad {
+  text-align: center;
 }
 
 .precio-total-carrito {
+  padding: 20px;
   display: flex;
   justify-content: space-between;
+}
+
+.grid-container {
+  margin-top: 3%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas del mismo tamaño */
+  gap: 10px; /* Espaciado entre los elementos */
+  width: 80%;
+  background-color: #b4b0a2;
+  padding: 20px;
+  border: 2px solid  #2A2B2A;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.boton-carrito{
+  padding: 20px;
+  padding: 10px 20px;
+  background-color: #b4b0a2;
+  color: #2A2B2A;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: 'Oleo Script', sans-serif;
+  border: #b4b0a2 1px solid;
+}
+
+.boton-carrito:hover {
+  background-color: #2A2B2A;
+  color: #F8F4E3;
+}
+
+form {
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
 }

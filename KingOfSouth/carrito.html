@@ -36,7 +36,7 @@
 <body class="body-carrito">
     <header></header>
 
-    <section class="seccion-carrito">
+    <section class="seccion-carrito form2">
         <div id="productos-carrito">
             <!--<div class="contenedor-producto">
                 <div class="producto-carrito-imagen"><img src="img/remera2.jpeg" alt="Remeraaa"></div>
@@ -52,11 +52,15 @@
                 </div>
             </div>-->
         </div>
-        <div class="precio-total-carrito" id="precio-total">
-            <p>Total:</p>
-            <p id="precio-a-pagar">$0</p>
+
+        <div class="grid-container">
+            <div class="precio-total-carrito" id="precio-total">
+                <p>Total:</p>
+                <p id="precio-a-pagar">$0</p>
+            </div>
+            <button class="boton-carrito" onclick="vaciarCarrito()">Vaciar carrito</button>
         </div>
-        <button onclick="vaciarCarrito()">Vaciar carrito</button>
+        
     </section>
     <script src="js/header.js"></script>
     <script src="js/carrito.js"></script>
