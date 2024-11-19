@@ -16,7 +16,7 @@ function cargarCatalogo(jsonCatalogos) {
 
     //Realizo una iteración por cada elemento del json
     for (const tipoPrenda in jsonCatalogos) {
-        
+
         //Creamos el titulo del catálogo
         const titulo = document.createElement('h2');
         titulo.textContent = tipoPrenda;
@@ -53,23 +53,31 @@ function cargarCatalogo(jsonCatalogos) {
 }
 
 //SCRIPT de Carrito
-let carrito = [];
-
 function agregarAlCarrito(idproducto) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     let productoNuevo;
 
-    for(const tipoPrenda in jsonCatalogo){
-        if(jsonCatalogo[tipoPrenda].some(item => item.id === idproducto)){
+    let productoEnElCarrito = carrito.find(item => item.id === idproducto);
+
+    
+    for (const tipoPrenda in jsonCatalogo) {
+        if (jsonCatalogo[tipoPrenda].some(item => item.id === idproducto)) {
             productoNuevo = jsonCatalogo[tipoPrenda].find(item => item.id === idproducto);
         }
     }
     
-    if (productoNuevo){
-        console.log(productoNuevo);
+    if(productoEnElCarrito){
+        productoEnElCarrito.cantidad += 1;
+    } else {
+        
+        if (productoNuevo) {
+            productoNuevo.cantidad = 1
+            carrito.push(productoNuevo);
+        }
+        
     }
-    
+
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
 }
 
-function cargarCarrito(){
-    console.log(llego);
-}
