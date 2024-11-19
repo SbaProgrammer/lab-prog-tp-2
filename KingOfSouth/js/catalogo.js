@@ -1,12 +1,16 @@
+//SCRIPT de Catálogo:
+
+let jsonCatalogo;
+
 //Productos a ofrecer
 fetch('http://localhost:3000/catalogo')
     .then(response => response.json())
     .then(data => cargarCatalogo(data))
     .catch(error => console.error("Salió todo mal man"))
 
-
 //Genero el catalogo
 function cargarCatalogo(jsonCatalogos) {
+    jsonCatalogo = jsonCatalogos;
     //Traigo el catalogo inicial para agregar los subcatalogos
     const catalogoInicial = document.getElementById('catalogoInicial');
 
@@ -34,7 +38,7 @@ function cargarCatalogo(jsonCatalogos) {
             <div class="contenido">
                 <h3>${producto.nombre}</h3>
                 <div class="precio_boton">
-                    <button>Comprar</button>
+                    <button onclick="agregarAlCarrito(${producto.id})">Comprar</button>
                     <p class="precio">$${producto.precio}</p>
                 </div>
             </div>
@@ -46,4 +50,26 @@ function cargarCatalogo(jsonCatalogos) {
         //Agrego el subcatálogo al Catálogo general
         catalogoInicial.appendChild(nuevoCatalogo);
     }
+}
+
+//SCRIPT de Carrito
+let carrito = [];
+
+function agregarAlCarrito(idproducto) {
+    let productoNuevo;
+
+    for(const tipoPrenda in jsonCatalogo){
+        if(jsonCatalogo[tipoPrenda].some(item => item.id === idproducto)){
+            productoNuevo = jsonCatalogo[tipoPrenda].find(item => item.id === idproducto);
+        }
+    }
+    
+    if (productoNuevo){
+        console.log(productoNuevo);
+    }
+    
+}
+
+function cargarCarrito(){
+    console.log(llego);
 }
