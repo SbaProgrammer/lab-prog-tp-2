@@ -1,6 +1,9 @@
 function cargarElCarrito() {
     //Cargo el carrito en la pagina de carrito
     const seccionCarrito = document.getElementById('productos-carrito')
+
+    seccionCarrito.innerHTML = "";
+    
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
     if (carrito.length === 0) {
@@ -23,6 +26,7 @@ function cargarElCarrito() {
                 <div class="producto-carrito-cantidad">
                     <p>${producto.cantidad}</p>
                 </div>
+                <button onclick="eliminarProducto(${producto.id})">-</button>
             `
         seccionCarrito.appendChild(productoNuevo);
     })
@@ -32,4 +36,22 @@ function cargarElCarrito() {
     precioAPagar.innerText = `$${precioTotal}`
 }
 
+function vaciarCarrito() {
+    localStorage.setItem('carrito', JSON.stringify([]));
+    cargarElCarrito();
+}
+
+function eliminarProducto(idproducto) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    let producto = carrito.find(item => item.id === idproducto);
+
+    if (producto.cantidad > 1) {
+        producto.cantidad -= 1;
+    } else {
+        carrito = carrito.filter(item => item.id != idproducto);
+    }
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+
+    cargarElCarrito();
+}
 window.onload = cargarElCarrito;

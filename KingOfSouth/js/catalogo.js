@@ -76,8 +76,8 @@ function agregarAlCarrito(idproducto) {
         }
         
     }
-
+    
     localStorage.setItem('carrito', JSON.stringify(carrito));
-
+    alert('El producto fue agregado con exito');
 }
 
