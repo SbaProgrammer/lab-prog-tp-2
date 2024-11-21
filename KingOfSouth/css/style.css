@@ -12,24 +12,9 @@ body {
   min-height: 100vh;
 }
 
-header {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 33px 9%;
-  background: transparent;
-}
-
 
 .logo {
-  font-size: 35px;
-  font-weight: 700;
-  color: #2A2B2A;
+  color: hsl(120, 1%, 17%);
 }
 
 .navlist {
@@ -45,9 +30,7 @@ header {
   transition: all .55s ease;
 }
 
-.navlist a:hover {
-  border-bottom: 2px solid #2A2B2A;
-}
+
 
 
 #menu-icon {
@@ -123,11 +106,9 @@ section {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f3f3f3;
-  padding: 2rem;
 }
 
 .contenedor {
