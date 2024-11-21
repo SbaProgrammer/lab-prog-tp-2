@@ -3,7 +3,7 @@
 let jsonCatalogo;
 
 //Productos a ofrecer
-fetch('http://localhost:3000/catalogo')
+fetch('http://localhost:3000/api/catalogo')
     .then(response => response.json())
     .then(data => cargarCatalogo(data))
     .catch(error => console.error("Salió todo mal man"))
