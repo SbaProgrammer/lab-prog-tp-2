@@ -31,8 +31,6 @@ body {
 }
 
 
-
-
 #menu-icon {
   color: white;
   font-size: 30px;
@@ -51,6 +49,7 @@ body {
   align-items: center;
   gap: 2rem;
 }
+
 
 section {
   padding: 0 15%;
@@ -448,4 +447,49 @@ form {
   gap: 1.5rem;
   position: relative;
   z-index: 1;
+}
+
+
+/* Parte Responvi */
+
+@media (max-width: 680px) {
+  .hero {
+    grid-template-columns: 1fr; /* Una sola columna */
+  }
+
+  .hero-img img {
+    margin: auto;
+    margin-top: -60%;
+    width: 95%;
+    height: 70%;
+  }
+  
+  .hero-text h1 {
+    font-size: 90%;
+    font-weight: 400;
+    color: #2A2B2A;
+    margin-bottom: 20px;
+  }
+  .hero-text h2 {
+    font-family: "Playwrite CU", cursive;
+    font-size: 160%;
+    line-height: 1;
+    color: #2A2B2A;
+    margin: 0 0 6% 0;
+  }
+
+  .titulo {
+   font-size: 80%;
+  }
+
+  .hero-text p {
+    margin: 10% 0 6% 0;
+    line-height: 200%;
+    font-family: 'Poppins', sans-serif; 
+  }
+
+  .icons {
+    display: none;
+  }
+
 }
