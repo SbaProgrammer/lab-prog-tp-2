@@ -20,13 +20,6 @@
             "descripcion": "Remera Manga Corta de Algodon",
             "precio": 900,
             "imagen": "img/remera3.jpeg"
-        },
-        {
-            "id": 24,
-            "nombre": "Remera Normal",
-            "descripcion": "Remera remil normalita",
-            "precio": 100,
-            "imagen": "img/remera4.jpeg"
         }
     ],
     "Buzos": [

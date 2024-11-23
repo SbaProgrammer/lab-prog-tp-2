@@ -7,17 +7,26 @@ router.get('/', (req, res) => {
     res.send(jsonRetorno);
 });
 
-const { existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto, eliminarProducto, obtenerJSON, obtenerPrendasDeTipo } = require('../Modelos/Prendas.js')
+const { existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto, eliminarProducto, obtenerJSON, obtenerPrendasDeTipo, modificarDescripcion, modificarImagen, modificarNombre, modificarPrecio } = require('../Modelos/catalogo-modelo.js')
 // Endpoint get
-router.get('/:tipoPrenda/:idPrenda', (req, res) => {
+router.get('/:tipoPrenda', (req, res) => {
     //Obtengo el id y tipo de la prenda
-    let { idPrenda, tipoPrenda } = req.params;
+    let { tipoPrenda } = req.params;
+    let { idPrenda } = req.query;
 
     idPrenda = parseInt(idPrenda);
 
     if (!idPrenda) {
-        //Validacion de si nos paso un idprenda
-        res.status(400).send({ message: 'Es requerido un parámetro \'idPrenda\'' });
+        //Si no nos paso un parámetro idPrenda le devuelvo todas las prendas del tipo
+
+        if (!existeTipoPrenda(tipoPrenda)) {
+            //Verificamos si el tipo de prenda existe
+            res.status(404).send('No existe el tipo de prenda');
+        } else {
+            const prendasDeTipo = obtenerPrendasDeTipo(tipoPrenda);
+            res.send(prendasDeTipo);
+        }
+
     } else if (idPrenda < 0) {
         //Validacion de que el idPrenda sea entero y mayor a 0
         res.status(400).send({ message: 'El parámetro \'idPrenda\' debe ser un entero mayor que 0' });
@@ -138,6 +147,68 @@ router.delete('/:tipoPrenda/:idPrenda', (req, res) => {
                 res.status(200).send('La prenda fue eliminada con exito');
             }
         }
+    }
+})
+
+router.put('/:tipoPrenda/:idPrenda', (req, res) => {
+    //Obtengo el id y tipo de la prenda
+    let productoRecibido = req.body;
+    let { tipoPrenda, idPrenda } = req.params;
+
+    idPrenda = parseInt(idPrenda);
+
+    if (!tipoPrenda) {
+        //Verifico que el parametro esté
+        res.status(400).send({ message: 'Se requiere el parámetro tipoPrenda' });
+    } else if (typeof tipoPrenda !== 'string') {
+        //Verifico que el tipo de Prenda sea un String
+        res.status(400).send({ message: 'El parámetro debe ser un String' });
+    } else if (idPrenda < 1) {
+        res.status(400).send({ message: 'El parámetro debe ser mayor a 1' });
+    }
+
+    //Verifico que contenga todo lo del body
+
+    if (!productoRecibido.nombre && !productoRecibido.descripcion && !productoRecibido.precio && !productoRecibido.imagen) {
+        res.status(404).send('No hay ningún dato valido a modificar en el body');
+    } else if (!existeTipoPrenda(tipoPrenda)) {
+        //Verifico que el tipo de la prenda exista
+        res.status(404).send('No existe el tipo de la prenda');
+    } else if (!existePrendaEnTipo(idPrenda, tipoPrenda)) {
+        //Verifico si existe una prenda de ese tipo con el mismo id
+        res.status(404).send('No existe la prenda en el tipo');
+    } else {
+        //Se puede modificar el producto
+        if (productoRecibido.nombre) {
+            if (typeof productoRecibido.nombre != 'string') {
+                res.status(400).send('El nombre tiene que ser un string')
+            } else {
+                modificarNombre(idPrenda, tipoPrenda, productoRecibido.nombre);
+            }
+        }
+
+        if (productoRecibido.descripcion) {
+            if (typeof productoRecibido.descripcion != 'string') {
+                res.status(400).send('La descripcion tiene que ser un string')
+            } else {
+                modificarDescripcion(idPrenda, tipoPrenda, productoRecibido.descripcion);
+            }
+        }
+
+        if (productoRecibido.precio) {
+            productoRecibido.precio = parseInt(productoRecibido.precio);
+            modificarPrecio(idPrenda, tipoPrenda, productoRecibido.precio);
+        }
+
+        if (productoRecibido.imagen) {
+            if (typeof productoRecibido.imagen != 'string') {
+                res.status(400).send('La imagen tiene que ser un string')
+            } else {
+                modificarImagen(idPrenda, tipoPrenda, productoRecibido.imagen);
+            }
+        }
+
+        res.send('El producto fue modificado con exito');
     }
 })
 

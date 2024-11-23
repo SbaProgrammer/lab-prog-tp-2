@@ -58,4 +58,44 @@ const eliminarProducto = (idPrenda, tipoPrenda) => {
     fs.writeFileSync(rutaJsonPrendas, stringJSON, 'utf8');
 }
 
-module.exports = {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto, eliminarProducto, obtenerPrendasDeTipo, obtenerJSON};
+const modificarNombre = (idPrenda, tipoPrenda, nombreNuevo) => {
+    //Busco el item con id y modifico su nombre
+    const producto = jsonPrendas[tipoPrenda].find(item => item.id === idPrenda);
+    producto.nombre = nombreNuevo;
+
+    const stringJSON = JSON.stringify(jsonPrendas);
+
+    fs.writeFileSync(rutaJsonPrendas, stringJSON);
+}
+
+const modificarDescripcion = (idPrenda, tipoPrenda, descripcionNueva) => {
+    //Busco el item con id y modifico su nombre
+    const producto = jsonPrendas[tipoPrenda].find(item => item.id === idPrenda);
+    producto.descripcion = descripcionNueva;
+
+    const stringJSON = JSON.stringify(jsonPrendas);
+
+    fs.writeFileSync(rutaJsonPrendas, stringJSON);
+}
+
+const modificarPrecio = (idPrenda, tipoPrenda, precioNuevo) => {
+    //Busco el item con id y modifico su nombre
+    const producto = jsonPrendas[tipoPrenda].find(item => item.id === idPrenda);
+    producto.precio = precioNuevo;
+
+    const stringJSON = JSON.stringify(jsonPrendas);
+
+    fs.writeFileSync(rutaJsonPrendas, stringJSON);
+}
+
+const modificarImagen = (idPrenda, tipoPrenda, imagenNueva) => {
+    //Busco el item con id y modifico su nombre
+    const producto = jsonPrendas[tipoPrenda].find(item => item.id === idPrenda);
+    producto.imagen = imagenNueva;
+
+    const stringJSON = JSON.stringify(jsonPrendas);
+
+    fs.writeFileSync(rutaJsonPrendas, stringJSON);
+}
+
+module.exports = {existeTipoPrenda, existePrendaEnTipo, obtenerPrendaDeTipo, agregarProducto, eliminarProducto, obtenerPrendasDeTipo, obtenerJSON, modificarDescripcion, modificarImagen, modificarNombre, modificarPrecio};
